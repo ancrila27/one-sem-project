@@ -29,8 +29,6 @@ class Model:
         self.lowerbound = mu - sigma*std
 
 
-    def loadModel(self):
-        return self.stdev, self.upperbound, self.lowerbound
             
     # return thresholds
         

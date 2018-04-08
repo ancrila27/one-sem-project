@@ -6,7 +6,7 @@ from PIL import Image
 
 
 class ledanalyzer(PiYUVAnalysis):
-    def __init__(self, camera):
+    def __init__(self, camera, detect_mode=False):
         super(ledanalyzer, self).__init__(camera)
         self.status = ''
         self.alist = []
@@ -17,6 +17,8 @@ class ledanalyzer(PiYUVAnalysis):
 
         self.sample_means = []
         self.framenum = []
+
+        self.detect_mode = False
 
        
     def mov_avg(self, stat):
@@ -58,8 +60,7 @@ class ledanalyzer(PiYUVAnalysis):
             if tmp_status == 1: # only store ON events
                 self.mov_avg(tmp_status)
 
-
-    
+        
 
         #31:34, 31:34
 ##        meanpx = Color(
